@@ -16,7 +16,7 @@ app.use("/blog",blogController);
 app.use("/user",userController);
 
 
-app.get("/", (req, res, next) => {
+app.get("/test", (req, res, next) => {
   res.send({ message: "welcome to BE API" });
 });
 app.all("{/*dummy}", (req, res, next) => {
