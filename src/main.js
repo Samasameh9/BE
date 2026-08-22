@@ -28,6 +28,6 @@ app.use(globalErrorHandling)
 
 
 
-app.listen(PORT, () => {
-  console.log(`server is running at port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`server is running at port ${PORT}`);
+// });
