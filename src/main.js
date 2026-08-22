@@ -25,6 +25,6 @@ app.all("{/*dummy}", (req, res, next) => {
 app.use(globalErrorHandling)
 
 
-
+export default app;
 
 
