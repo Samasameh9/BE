@@ -17,7 +17,7 @@ app.use("/user",userController);
 
 
 app.get("/", (req, res, next) => {
-  res.json({ message: "welcome to BE API" });
+  res.send({ message: "welcome to BE API" });
 });
 app.all("{/*dummy}", (req, res, next) => {
   res.status(404).send({ message: "invalid application routing" });

@@ -12,4 +12,12 @@ let db = mysql2.createPool({
   queueLimit: 0,
 });
 
+db.getConnection()
+  .then((connection) => {
+    console.log("MySQL connected successfully");
+    connection.release();
+  })
+  .catch((error) => {
+    console.error("MySQL connection failed:", error);
+  });
 export default  db;
