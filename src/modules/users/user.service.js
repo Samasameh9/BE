@@ -1,7 +1,7 @@
 import db from "../../DB/connection.db.js";
 
 export const users = async (inputs) => {
-  const query = `select u_id, concat(users.u_first_name," ",users.u_middle_name," ",users.u_last_name) as fullname,u_email,u_gender,TIMESTAMPDIFF(YEAR, u_DOB, CURDATE()) AS age from users where u_id=?`;
+  const query = `select u_id, concat(users.u_first_name," ",users.u_middle_name," ",users.u_last_name) as fullname,u_email,u_gender,u_DOB,TIMESTAMPDIFF(YEAR, u_DOB, CURDATE()) AS age from users where u_id=?`;
   const [result] = await db.execute(query,[inputs.params.userId]);
   if (!result?.length) {
     throw new Error("invalid profile id", {
