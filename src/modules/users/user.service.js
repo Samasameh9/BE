@@ -13,8 +13,9 @@ export const users = async (inputs) => {
 
 
 export const updateUser = async (inputs) => {
+  const{gender,DOB}=inputs.body
   const updatedQuery = `update users set u_gender=?,u_DOB=? where u_id=?`;
-  const [result] = await db.execute(updatedQuery,[inputs.body.gender,inputs.body.DOB,inputs.params.userId]);
+  const [result] = await db.execute(updatedQuery,[gender,DOB,inputs.params.userId]);
   if (!result?.affectedRows) {
     throw new Error("invalid user", {
       cause: { status: 404 },

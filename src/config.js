@@ -1,11 +1,7 @@
 import { config } from "dotenv";
 
-if (process.env.NODE_ENV !== "production") {
-  config({ path: ".env.development" });
-}
-
 export const NODE_ENV = process.env.NODE_ENV ?? "development";
-
+config({ path: `.env.${process.env.NODE_ENV ?? "development"}` });
 export const PORT = parseInt(process.env.PORT ?? "9000");
 
 export const DB_NAME = process.env.DB_NAME;
