@@ -35,7 +35,7 @@ export const allBlogs = async (inputs) => {
 };
 
 export const userBlog = async (inputs) => {
-  const query = `select blogs.*,concat(users.u_first_name," ",users.u_middle_name," ",users.u_last_name) as fullname from blogs inner join users on blogs.b_author_id=users.u_id where blogs.b_author_id=? `;
+  const query = `select blogs.*,concat(users.u_first_name," ",users.u_middle_name," ",users.u_last_name) as fullname from blogs inner join users on blogs.b_author_id=users.u_id where blogs.b_author_id=? ORDER BY blogs.b_createdAt DESC`;
   const [result] = await db.execute(query, [inputs.params.id]);
   if (!result?.length) {
     throw new Error("No blogs found", {
